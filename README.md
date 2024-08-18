@@ -69,13 +69,15 @@
     ```bash
     docker-compose run --rm web rails new . --force --database=mysql --api
     ```
-
-7. Dockerイメージをビルドします。
+    
+7. Dockerfileを３にかきなおします。
+    
+8. Dockerイメージをビルドします。
     ```bash
     docker-compose build
     ```
 
-8. `config/database.yml`の一部を以下のように修正します。
+9. `config/database.yml`の一部を以下のように修正します。
     ```yaml
     default: &default
       adapter: mysql2
@@ -87,21 +89,21 @@
       host: db
     ```
 
-9. 再度Dockerイメージをビルドします。
+10. 再度Dockerイメージをビルドします。
     ```bash
     docker-compose build
     ```
 
-10. データベースを作成します。
+11. データベースを作成します。
     ```bash
     docker-compose up db -d
     docker-compose run --rm web bundle exec rails db:create
     ```
 
-11. コンテナを作成し、起動します。
+12. コンテナを作成し、起動します。
     ```bash
     docker-compose up -d
     ```
 
-12. ブラウザで[http://localhost:3000/](http://localhost:3000/)にアクセスして、アプリケーションが正しく動作していることを確認します。
+13. ブラウザで[http://localhost:3000/](http://localhost:3000/)にアクセスして、アプリケーションが正しく動作していることを確認します。
 
