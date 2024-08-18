@@ -1,6 +1,6 @@
 # Rails API with Docker
 
-このプロジェクトでは、Dockerを使用してRailsアプリケーションをAPIモードで作成します。
+このプロジェクトでは、Dockerを使用してRailsアプリケーションをAPIモードで作成します。以下は作成手順です。
 
 ## 手順
 
