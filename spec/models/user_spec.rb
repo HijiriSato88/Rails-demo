@@ -32,6 +32,11 @@ RSpec.describe User, type: :model do
         expect(user).to_not be_valid
     end
 
+    it 'is invalid with an age longer than 150' do
+        user.age = 151
+        expect(user).to_not be_valid
+    end
+
     it 'is invalid without an email' do
         user.email = nil
         expect(user).to_not be_valid
