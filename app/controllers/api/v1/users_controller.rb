@@ -23,15 +23,18 @@ module Api
 
             def update
                 if @user.update(user_params)
-                render json: { status: 'SUCCESS', message: 'Updated the post', data: @user }
+                    render json: { status: 'SUCCESS', message: 'Updated the post', data: @user }, status: :ok
                 else
-                render json: { status: 'SUCCESS', message: 'Not updated', data: @user.errors }
+                    render json: { status: 'ERROR', message: 'Not updated', data: @user.errors }, status: :unprocessable_entity
                 end
             end
 
             def delete
-                @user.destroy
-                render json: { status: 'SUCCESS', message: 'Deleted the post', data: @user }
+                if @user.destroy
+                    render json: { status: 'SUCCESS', message: 'Deleted the post', data: @user }
+                else
+                    render json: { status: 'ERROR', message: 'Not deleted', data: @user.errors }, status: :unprocessable_entity
+                end
             end
 
             private
